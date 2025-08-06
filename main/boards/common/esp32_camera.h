@@ -11,6 +11,8 @@
 
 #include "camera.h"
 
+#include <vector>
+#include <cstdint>
 struct JpegChunk {
     uint8_t* data;
     size_t len;
@@ -34,6 +36,8 @@ public:
     virtual bool SetHMirror(bool enabled) override;
     virtual bool SetVFlip(bool enabled) override;
     virtual std::string Explain(const std::string& question);
+    virtual std::vector<uint8_t> GetJpegBuffer(int quality);
+    virtual std::string GetJpegBase64(int quality);
 };
 
 #endif // ESP32_CAMERA_H
